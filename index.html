@@ -922,6 +922,62 @@
     <!-- TAB 5: SPSSPRO & 防翻车清单 -->
     <section class="panel" id="panel-guide">
       <div class="box">
+        <h2>📖 Word 三线表 & SPSS 图表逐列看懂速查</h2>
+        <p class="box-sub">看报告忘了某个符号、某一列是啥意思？直接对照下面这张“人话词典”秒懂：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>表/图里的符号</th>
+              <th>纯大白话翻译</th>
+              <th>怎么看算好？</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>因子载荷蓝黄图</strong></td>
+              <td>“盲测分班”：每行=1道题，每列=1个维度，越深蓝越铁定归这班</td>
+              <td>呈现清晰<strong>对角深蓝阶梯</strong>，主载荷 &gt; 0.5（&gt;0.7 极佳）</td>
+            </tr>
+            <tr>
+              <td><strong>累计方差解释率</strong></td>
+              <td>把 20 题浓缩成 5 维度后，还保留了多少原始信息量</td>
+              <td>一般 <strong>&gt; 60%</strong> 就算结构良好</td>
+            </tr>
+            <tr>
+              <td><strong>均值±标准差<br/>(如 3.03±0.75)</strong></td>
+              <td>左边是平均分，右边是标准差（代表这组人意见分歧大小）</td>
+              <td>标准差越小说明大家意见越整齐一致</td>
+            </tr>
+            <tr>
+              <td><strong>ANOVA 里的 F 值</strong></td>
+              <td>“各组之间的差距 ÷ 各组内部的杂乱程度”</td>
+              <td>F 越大且 <strong>p &lt; 0.05 (*)</strong> 说明群体分化越明显</td>
+            </tr>
+            <tr>
+              <td><strong>相关表右上角留空</strong></td>
+              <td>对角线自己比自己=1；右上和左下完全对称重复，故省去</td>
+              <td>重点盯底行因变量，红/正=同涨同跌，蓝/负=一涨一跌</td>
+            </tr>
+            <tr>
+              <td><strong>B vs Beta（回归）</strong></td>
+              <td><strong>B</strong>=原始增减算账；<strong>Beta</strong>=统一尺子比谁权重第一</td>
+              <td><strong>比谁影响力大一律看 Beta 绝对值</strong>（先过 p&lt;0.05）</td>
+            </tr>
+            <tr>
+              <td><strong>SE（标准误）</strong></td>
+              <td>估计系数 B 的误差幅度</td>
+              <td>越小越稳，答辩一般不细考</td>
+            </tr>
+            <tr>
+              <td><strong>R² / F / D-W</strong></td>
+              <td><strong>R²</strong>=整体解释了多少比例；<strong>D-W</strong>=残差是否彼此独立</td>
+              <td>问卷 R² &gt; 0.3 不错（&gt;0.5 优秀）；<strong>D-W 靠近 2.0 (1.5~2.5)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box">
         <h2>✅ 交报告/发学长前必勾：4 条防翻车保命清单</h2>
         <p class="box-sub">每次跑完数据花 30 秒把这 4 项勾完，绝不踩低级坑。</p>
         <div id="checklist"></div>
@@ -1078,6 +1134,26 @@
         chips: [{ text: "R² 看整体解释力", cls: "" }, { text: "Beta 比谁权重最大", cls: "" }, { text: "VIF < 5 无共线性", cls: "blue" }],
         detail: "如果结果 Y 是连续打分（1~5分）用多元线性回归；如果结果 Y 只有“愿意/不愿意”两种 0/1 选项，则用【二元 Logistic 回归】看 OR 比值比。",
         script: "多元线性回归模型整体显著（F = 86.2, p < 0.001），R² = 0.54，各变量 VIF 均小于 2.5（无多重共线性）。其中感知有用性（Beta = 0.44, p < 0.001）对购买意愿正向驱动最强。"
+      },
+      {
+        tag: "看图秘籍 · 因子图",
+        tagClass: "orange",
+        title: "怎么看懂「因子载荷蓝黄阶梯图」？",
+        en: "Factor Loading Heatmap · 盲测分班一眼懂",
+        analogy: "把 20 道题名字遮住让算法盲测分回 5 个班：每行是一道题，每列是一个班；颜色越深蓝越铁定属于这班，浅黄表示没关系。",
+        chips: [{ text: "呈现对角深蓝阶梯 = 完美", cls: "" }, { text: "主载荷 > 0.5 合格", cls: "blue" }, { text: "累计解释率 > 60%", cls: "" }],
+        detail: "完美形态是从左上到右下的深蓝块阶梯，证明没一道题“串门站错队”。如果某题在两列都是 0.55，说明题干有歧义，删掉重跑即可。",
+        script: "旋转后因子载荷热力图呈现清晰的 5 块对角深蓝阶梯，20 道题主载荷均在 0.70 以上且无明显交叉载荷，累计方差解释率达 73.70%，结构效度优异。"
+      },
+      {
+        tag: "看表秘籍 · 三线表",
+        tagClass: "orange",
+        title: "三线表符号速查：±SD / F / B / Beta / SE / D-W",
+        en: "How to Read SPSS Three-Line Tables",
+        analogy: "看表抓重点不头晕：ANOVA 先扫最右 p 值找星号 *；相关表只看左下角；回归表比谁影响最大直接盯标准化系数 Beta！",
+        chips: [{ text: "3.03±0.75 = 均值±标准差", cls: "blue" }, { text: "比权重看 Beta 不看 B", cls: "" }, { text: "D-W 在 1.5~2.5 过关", cls: "" }],
+        detail: "F 值 = 组间差距 ÷ 组内杂乱度；SE = 系数误差范围；B = 原始每涨 1 分带动的分值变化；Beta = 消除量纲后的真实话语权排行；D-W 靠近 2.0 说明残差独立。",
+        script: "表 1 清洗证明样本真实 → 表 2/3 信效度证明尺子稳且准 → 表 4 ANOVA 锁定高年级种子用户 → 表 5 相关初筛 → 表 6 回归用 Beta 排出核心驱动力！"
       }
     ];
 
