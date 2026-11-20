@@ -1,0 +1,23 @@
+{
+  "name": "大创赛 SPSS & AI 数据分析随身小册",
+  "short_name": "大创SPSS小册",
+  "description": "大创赛 SPSS 问卷分析与 AI 数据分析随身速查小册",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
